@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Building Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 90%;
+    }
+    .form-step {
+  display: none;
+    }
+
+.form-step.active {
+  display: block;
+    }
+
+    button {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
+    }
+    .checkbox-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form id="multiStepForm">
+      <div class="form-step active">
+        <label for="businessIdea">What is your business idea?</label>
+        <input type="text" id="businessIdea" name="businessIdea" required placeholder="e.g. Online Bakery">
+    
+        <label for="existingBusiness">What type of business do you already have? (optional)</label>
+        <input type="text" id="existingBusiness" name="existingBusiness" placeholder="e.g. Candle Making, Clothing Store">
+    
+        <button type="button" class="next-btn">Next</button>
+      </div>
+
+      <div class="form-step">
+        <p>2. What setup do you need?</p>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="needs" value="Business Name"> Business Name</label>
+          <label><input type="checkbox" name="needs" value="Logo"> Logo</label>
+          <label><input type="checkbox" name="needs" value="Accounting Setup"> Accounting Setup</label>
+          <label><input type="checkbox" name="needs" value="Basic Business Setup"> Basic Business Setup</label>
+        </div>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+
+      <div class="form-step">
+        <label for="details">3. Any extra details?</label>
+        <textarea id="details" name="details" rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+<!-- https://script.google.com/macros/s/AKfycbzhoaiir7pfXHbn08gESt09L3LPic0ORTUiWyE7WP9Q8RzclOIYmzSaxuTJILa9ALWw5g/exec -->
+  <script>
+    const steps = document.querySelectorAll(".form-step");
+    const nextBtns = document.querySelectorAll(".next-btn");
+    let currentStep = 0;
+
+    nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+          steps[currentStep].classList.remove("active");
+          currentStep++;
+          steps[currentStep].classList.add("active");
+        }
+      });
+    });
+
+    document.getElementById("multiStepForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = this;
+      const formData = new FormData(form);
+
+      // ✅ Replace this with your actual Google Apps Script Web App URL:
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzhoaiir7pfXHbn08gESt09L3LPic0ORTUiWyE7WP9Q8RzclOIYmzSaxuTJILa9ALWw5g/exec";
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then((response) => {
+          if (response.ok) {
+            alert("Form submitted successfully!");
+            window.location.href = "index.html"; // or another thank-you page
+          } else {
+            alert("Submission failed. Please try again.");
+          }
+        })
+        .catch((error) => {
+          alert("Error submitting form.");
+          console.error("Error!", error.message);
+        });
+    });
+  </script>
+</body>
+</html>

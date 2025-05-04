@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup form</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <!-- Sign Up / Login Modal -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleAuthForm()">&times;</span>
+      <h2>Login / Sign Up</h2>
+      <form id="authForm">
+        <input type="email" placeholder="youremail@gmail.com" required><br>
+        <input type="text" placeholder="Username" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button type="submit">Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("authForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent default form submission
+      
+      // Optional: add field validation if needed
+
+      // Redirect to homepage
+      window.location.href = "index.html";
+    });
+  </script>
+
+  <!-- <script>
+    function toggleAuthForm() {
+    const modal = document.getElementById("authModal");
+    modal.style.display = modal.style.display === "block" ? "none" : "block";
+  }
+  function redirectToHome(event) {
+    event.preventDefault();
+
+    Window.location.href = "index.html"
+  }
+  window.onclick = function(event) {
+    const modal = document.getElementById("authModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script> -->
+       
+</body>
+</html>
