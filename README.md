@@ -1,6 +1,6 @@
-# LaunchNext.ai
-🚀 LaunchNext.ai — AI-powered business setup platform. A smart and modern web-based form that helps users build their business with AI assistance. This multi-step form collects business ideas and setup needs, then sends data to Google Sheets for backend processing.
-# LaunchNext.ai 🚀
+# LaunchAxis.ai
+🚀 LaunchAxis.ai — AI-powered business setup platform. A smart and modern web-based form that helps users build their business with AI assistance. This multi-step form collects business ideas and setup needs, then sends data to Google Sheets for backend processing.
+# LaunchAxis.ai 🚀
 
 **LaunchNext.ai** helps new entrepreneurs get started by collecting their business ideas and setup needs through a simple, step-by-step form.
 
@@ -11,9 +11,9 @@
 - 📝 Add any extra details
 - 📩 Submit everything in one place
 
-## 🎯 Why Use LaunchNext.ai?
+## 🎯 Why Use LaunchAxis.ai?
 
-LaunchNext.ai makes it easy for beginners to explain what they need to launch a business — no technical knowledge required. Just answer a few friendly questions and you're on your way!
+LaunchAxis.ai makes it easy for beginners to explain what they need to launch a business — no technical knowledge required. Just answer a few friendly questions and you're on your way!
 
 ## 💻 Try It Out
 
